@@ -24,15 +24,20 @@ function intToPhonetic(numInput) {
             phonetic += values[numInput[i]];
         }
         else if (numInput[i].length > 1) {
-            let largeNumber = numInput[i].split("");
-            for (let j = 0; j < largeNumber.length; j++) {
-                if (largeNumber[j] in values)
-                    phonetic += values[largeNumber[j]];
-            }
+            convertLargeNum(numInput[i])
         }
 
         if (i < numInput.length - 1) {
             phonetic += ",";
+        }
+    }
+}
+
+function convertLargeNum(num) {
+    let largeNumber = num.split("");
+    for (let j = 0; j < largeNumber.length; j++) {
+        if (largeNumber[j] in values) {
+            phonetic += values[largeNumber[j]];
         }
     }
 }
