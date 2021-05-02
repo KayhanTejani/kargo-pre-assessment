@@ -23,6 +23,13 @@ function intToPhonetic(numInput) {
         if (numInput[i].length == 1 && numInput[i] in values) {
             phonetic += values[numInput[i]];
         }
+        else if (numInput[i].length > 1) {
+            let largeNumber = numInput[i].split("");
+            for (let j = 0; j < largeNumber.length; j++) {
+                if (largeNumber[j] in values)
+                    phonetic += values[largeNumber[j]];
+            }
+        }
 
         if (i < numInput.length - 1) {
             phonetic += ",";
